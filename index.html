@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="a.css">
+    <style>
+    
+        body {
+            background-image: linear-gradient(to left, rgb(0, 159, 195), rgb(0, 177, 216), rgb(0, 208, 255), rgb(6, 170, 220), rgb(2, 141, 183));
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Garante que o body ocupe 100% da altura da tela */
+            overflow-x: hidden; /* Impede o scroll horizontal */
+        }
+
+        header {
+            display: flex;
+            border-bottom: 2px rgb(5, 18, 121) groove;
+            padding-bottom: 4px;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        #menu {
+            width: 50px;
+            height: auto;
+            cursor: pointer; /* Torna o ícone clicável */
+        }
+
+        #logo {
+            width: 110px;
+            height: 50px;
+            margin-left: 145px;
+        }
+
+        /* Página que aparece ao clicar */
+        .menu-page {
+            display: none; /* Inicialmente escondido */
+            position: fixed;
+            top: 0; /* Inicia no topo da tela */
+            left: 0;
+            width: 50%; /* Ocupa 50% da largura */
+            height: 100%; /* Ocupa 100% da altura da tela */
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            animation: slideIn 0.5s forwards; /* Animação */
+        }
+
+        .menu-content {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%); /* Centraliza o conteúdo verticalmente */
+        }
+
+        /* Animação de entrada (da esquerda para a direita) */
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%); /* Começa fora da tela à esquerda */
+            }
+            to {
+                transform: translateX(0); /* Vai até a posição final */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <!-- Ícone do Menu -->
+        <img id="menu" src="icone_menu02.png" alt="Menu">
+        <!-- Logo -->
+        <img id="logo" src="ARTEPODA 25.png" alt="Logo">
+    </nav>
+</header>
+
+<!-- Página que aparece com a animação -->
+<div id="menuPage" class="menu-page">
+    <div class="menu-content">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="animalia.html">Reino Animalia</a></li>
+            <li><a href="monera.html">Reino Monera</a></li>
+            <li><a href="fungi.html">Reino Fungi</a></li>
+            <li><a href="protista.html">Reino Protista</a></li>
+            <li><a href="vegetal.html">Reino Plantae</a></li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // Seleciona o botão de menu e a página do menu
+    const menuBtn = document.getElementById('menu');
+    const menuPage = document.getElementById('menuPage');
+
+    // Função para abrir/fechar a página do menu
+    menuBtn.addEventListener('click', () => {
+        if (menuPage.style.display === 'none' || menuPage.style.display === '') {
+            menuPage.style.display = 'block'; // Exibe a página com animação
+        } else {
+            menuPage.style.display = 'none'; // Esconde a página
+        }
+    });
+</script>
+
+</body>
+</html>
